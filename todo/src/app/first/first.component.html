@@ -1,0 +1,64 @@
+<p>first works!</p>
+
+
+<!-- <input type="text" #input> -->
+<div class="container">
+
+   <div class="row">  
+     <div class="col">
+      <form [formGroup]="formdata">
+
+
+         
+             <input type="text" class="formControl" formControlName="name">
+          
+       </form>
+     </div>
+
+     <div class="col">
+        <button class="btn btn-primary" (click)="addTask()">Add+</button>
+     </div>
+
+   </div>
+
+
+<h1>
+    TODO
+</h1>
+    
+
+<div class="row mt-4" *ngFor="let x of list">
+    <div class="col">
+      <input type="checkbox" (change)="changeCheckBox($event,x)">
+    </div>
+     <div class="col"> {{x}}</div>
+     <div>
+         <input class="mr-2" type="text" #ed placeholder="Edit">
+         <input type="text" #ed2 placeholder="Add Subtask">
+     </div>
+
+     <div class="col">
+        <button class="btn btn-primary mr-2" (click)="addSubTask(x,ed2.value)" >Add Subtask</button> 
+        <button class="btn btn-primary" (click)="edit(x,ed.value)" >Edit</button>
+         <button class="btn btn-danger ml-2" (click)="delete(x)">Delete</button>
+     </div>
+</div>
+
+<div>
+    <h1>Completed</h1>
+</div>
+<div class="row" *ngFor="let y of list2">
+    <div>
+        <input type="checkbox" checked>
+    </div>
+   <div class="col">
+        {{y}}
+   </div>
+   <br>
+</div>
+
+
+
+
+
+</div>
